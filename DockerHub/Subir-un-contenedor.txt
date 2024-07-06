@@ -1,0 +1,19 @@
+1. Iiciamos sesión
+    docker login
+
+2. Ingresamos el usuario y la contraseña de nuestra cuenta de DockerHub
+
+3. Nos dirigimos a la ruta de nuestro proyecto
+    cd /mnt/c/Users/Ichinaro/Proyectos/"El resto de la ruta"
+
+4. Creamos la imagen pero debemos usar nuestro nombre de usuario en DockerHub
+    docker build -t <<UsuarioDockerHub/nameRepository:nameTag>> .
+    docker build -t johnnyfernandogomez1994/linktree:latest .
+
+5. Enviamos a DockerHub
+    docker push johnnyfernandogomez1994/linktree:latest
+
+6. Revisamos que se subió a nuestra cuenta de DockerHub
+    https://hub.docker.com
+
+    Nota: Asegurate de colocar en la descripción información sobre el contenedor, por ejemplo el puerto de comunicacón con el contenedor

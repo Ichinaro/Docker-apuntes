@@ -1,0 +1,6 @@
+1. Levantar un contenedor desde una imagen en DockerHub
+docker run --name <<ContenedorName>> --rm -it -p 8080:80 <<RepoDockerHub>>
+docker run --name ichinaro --rm -it -p 8080:80 johnnyfernandogomez1994/linktree:latest
+
+1. Abrimos en el navegador
+    http://localhost:8080/linktree.html
