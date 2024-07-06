@@ -1,0 +1,35 @@
+** DOCKERFILE **
+  Indicamos la imagen a usar en el contenedor:
+  FROM python:<<versión-específica>>
+  FROM python:3.12-alpine3.17
+  
+  Creamos un directorio en el conenedor donde se alojarán los archivos
+  WORKDIR /app
+  
+  Copiamos el archivo "requirements.txt" en el directorio con el nombre "requirements.txt"
+  este directorio contiene el nombre de los paquetes necesarios para el proyecto
+  COPY requirements.txt requirements.txt
+  
+  Intalamos los paquetes indicados en el archivo "requirements.txt"
+  RUN pip install -r requirements.txt
+  
+  Copiamos al directorio del contenedor todos los archivos del proyecto
+  COPY . .
+  
+  Ejecutamos un comando de CDM en el conenedor
+  en este caso ejecuta flask para tener nuestras rutas API
+  CMD [ "python", "-m", "flask", "run", "--host=0.0.0.0" ]
+
+
+** CREAMOS LA IMAGEN **
+  docker build -t <<nombre_imagen:etiqueta>>
+  docker build -t mi-app:py3-12 .
+
+
+** LEVANTAMOS CONTENEDOR **
+  docker run -p 8080:5000 <<nombre_imagen:etiqueta>>
+  docker run -it --rm -d -p 8080:5000 --name api mi-app:py3-12
+
+  NOTA:
+  el puerto 8080 es con el nos conectamos al contenedor
+  el puerto 5000 es el que crea por defecto Flask para la API
