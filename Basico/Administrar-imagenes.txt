@@ -1,0 +1,14 @@
+1. Filtar busqueda de imagenes
+    docker images --filter=reference='<<RepositoryName>>:<<TagName>>'
+    docker images --filter=reference='*:1.0'
+
+2. Ver el IMAGE ID completo
+    docker images --no-trunc
+
+2. Crear imagen a partir de otra creada previamente
+    docker image tag <<RepositoryName>>:<<TagName>> <<RepositoryNewName>>:<<TagNewName>>
+    docker image tag sitioweb:latest amin/sitioweb:latest
+
+3. Eliminar imagenes
+    docker rmi amin/sitioweb:latest
+    docker rmi -f <<IMAGE ID>>

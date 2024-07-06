@@ -1,0 +1,20 @@
+1. Abrir una imagen en contenedores diferentes
+
+    (supongamos que la imagen se llama: johnny/web:1.0 )
+    -> docker run -it --rm -d -p 8080:80 --name web johnny/web:1.0
+
+    (volvemos a abrir la imagen en otro puerto y renombramos)
+    -> docker run -it --rm -d -p 8085:80 --name web85 johnny/web:1.0
+
+2. Ver contenedores desplegados (2 formas)
+    docker ps
+    docker ps -a
+
+3. ver el tamaño de los contenedores
+    docker ps --size
+
+4. Detener un contenedor
+    docker stop <<CONTAINER ID>>
+
+5. Ver el consumo de recursos de un contenedor
+    docker stats

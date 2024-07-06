@@ -1,0 +1,24 @@
+1. Creo el archivo Dockerfile
+
+2. Para nuestra imagen implementamos NGINX como el servidor para desplegar el sitio web
+    FROM nginx:latest
+
+3. Copiamos el contenido de la carpeta "sitio" a la ruta del servidor web NGINX
+    # Path: /usr/share/nginx/html
+    COPY /sitio /usr/share/nginx/html
+
+4. En Ubunto nos dirigimos a la ruta del proyecto
+    cd /mnt/c/Users/<<mi-usuario>>/<<el-resto-de-la-ruta>>
+
+5. Ejecutamos
+    docker build .
+
+6. Comprobamos que creó la imagen
+    docker images
+
+7. Para eliminar la imagen
+    docker rmi -f <<IMAGE ID>>
+
+8. ejecutamos con -t para indicar el nombre del repository y el tag
+    docker build -t <<name-repository>>:<<name-tag>> .
+    docker build -t sitioweb:latest .

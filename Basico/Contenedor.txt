@@ -1,0 +1,30 @@
+1. Crear y ejecutar el contenedor
+
+    docker run -it --rm -d -p 8080:80 --name web sitioweb
+
+    -it (interactivo) para ver en la terminal logs o print que esté regresando mi proyecto
+
+    --rm elimina cualquier versiòn del contenedor previamente ejecutandose
+
+    -d ejecuta el contenedor en segundo plano par que esté listo cuando se requiera
+    
+    -p para indicarle el puerto de acceso
+
+    --name indica el nombre de contenedor ("web")
+
+    "sitioweb" es el nombre de la imagen que quiero ejecutar
+
+2. Ver todos los contenedores
+    docker ps
+
+3. En docker desktop podemor confirmar que los archivos se encuentran en el contenedor ejecutado
+    - Selecciona el contenedor
+    - ve a la opción Exec
+        Excec permite navegar dentro de la estructura de archivos de la imagen usada
+    - escribimos:
+        cd /usr/share/nginx/html
+        ls
+
+4. En el navegador abrimos la aplicación
+    localhost:8080/<<html-name>>
+    localhost:8080/linktree.html
