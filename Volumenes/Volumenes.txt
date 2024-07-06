@@ -1,0 +1,40 @@
+Los volumenes crean un puente entre el contenedor y el equipo local
+Imagina que es como una carpeta compartida entre dos computadoras diferentes
+Permite al contenedor actualizar automàticamente los cambios que se realicen desde mi equipo y viceversa
+
+
+1. En "sitio" rea una capeta llamada "assets"
+    ./sitio/assets
+
+2. Agregale dos imagenes
+    001.png
+    002.jpg
+
+3. añadimos: "-v ./sitio:/usr/share/nginx/html/sitio" a :"docker run -it --rm -d -p 8080:80 --name web sitioweb"
+
+  docker run -it --rm -d -p 8080:80 -v ./sitio:/usr/share/nginx/html/sitio --name web sitioweb
+
+  -v :                      volumenes
+  ./sitio:                  ruta de mi proyecto en el equipo local (mi VSCode)
+  /usr/share/nginx/html :   Ruta de NGINX
+  /sitio:                   crea una carpeta llamada "sitio" con el de nuestro equipo local en NGINX
+
+4. Abrimos en el navegador
+  http://localhost:8080/sitio/linktree.html
+
+5. En nuestro archivo linktree.html de VSC cambiamos la foto de perfil por una de las fotos que agregamos anteriormente en la carpeta assets
+    <img src="./assets/001.png" class="w3-margin"...>
+
+6. Recargamos el Navegador
+    Como al realizar cambios en nuestro VSCode tambien se realizan en el contenedor, significa que si recargamos el navegador podremos ver como la imagen tambien cambió
+
+    Tambien podemos hacer los cambios desde Excec en Docker Desktop y estos tambien se veran reflejados en el VSCode
+
+
+** CREA VOLUMENES DESDE EL DOCKERFILE **
+
+1. Añade el siguiente codigo en Dockerfile:
+    VOLUME ["/sitio", "/usr/share/nginx/html"]
+
+    "/sitio" :                  Indica el Origen
+    "/usr/share/nginx/html" :   Indica el Destino
